@@ -2,14 +2,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     'use strict';
 
-    // Page slider
-if (document.body.id === "page-main") {
-
+    // Page slider & Modules slider
 const goPage = () => {
     let slideIndex = 1,
-        slides = document.querySelectorAll('.page > div'),
+        slides,
         next = document.querySelectorAll('.next'),
         logo = document.querySelectorAll('.sidecontrol > a');
+
+    if (document.body.id === "page-main") {
+        slides = document.querySelectorAll('.page > div');
+    } else {
+        slides = document.querySelectorAll('.module');
+    }
 
     const showSlides = (n) => {
 
@@ -20,7 +24,6 @@ const goPage = () => {
         slides.forEach(item => item.style.display = 'none');
 
         slides[slideIndex - 1].style.display = 'block';
-        console.log('++');
         slides[slideIndex - 1].animate([{
                 width: '30%',
                 transform: 'rotate(360deg)'
@@ -61,67 +64,6 @@ const goPage = () => {
 };
 
 goPage();
-
-}
-
-//Modules slider
-const goModules = () => {
-    let slideIndex = 1,
-        slides = document.querySelectorAll('.module'),
-        next = document.querySelectorAll('.next'),
-        logo = document.querySelectorAll('.sidecontrol > a');
-
-    const showSlides = (n) => {
-
-        if (n > slides.length) {
-            slideIndex = 1;
-        }
-
-        slides.forEach(item => item.style.display = 'none');
-
-        slides[slideIndex - 1].style.display = 'block';
-        // slides[slideIndex - 1].animate([{
-        //         width: '30%',
-        //         transform: 'rotate(360deg)'
-        //     },
-        //     {
-        //         offset: 0.6,
-        //         width: '100%',
-        //         transform: 'rotate(0deg)'
-        //     },
-        //     {
-        //         width: '95%',
-        //         transform: 'rotate(0deg)'
-        //     }
-        // ], {
-        //     duration: 2000
-        // });
-    };
-
-    showSlides(slideIndex);
-
-    const plusSlides = (n) => {
-        showSlides(slideIndex += n);
-    };
-
-    next.forEach(item => {
-        item.addEventListener('click', () => {
-            plusSlides(1);
-        });
-    });
-
-    logo.forEach(item => {
-        item.addEventListener('click', () => {
-            slides.forEach(item => item.style.display = 'none');
-            slides[0].style.display = 'block';
-            slideIndex = 1;
-        });
-    });
-};
-
-goModules();
-
-
 
 // Video
 
