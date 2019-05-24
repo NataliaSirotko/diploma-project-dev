@@ -2,17 +2,36 @@ window.addEventListener('DOMContentLoaded', () => {
 
     'use strict';
 
-    // Page slider & Modules slider
+    // Page slider & Modules slider & Modules nav
 const goPage = () => {
     let slideIndex = 1,
-        slides,
-        next = document.querySelectorAll('.next'),
+        slides,        
+        next = document.querySelectorAll('.sidecontrol__controls .next'),
         logo = document.querySelectorAll('.sidecontrol > a');
 
     if (document.body.id === "page-main") {
         slides = document.querySelectorAll('.page > div');
+        //next = document.querySelectorAll('.sidecontrol__controls .next');
     } else {
         slides = document.querySelectorAll('.module');
+
+        if ('.nextmodule') {          
+            let next1 = document.querySelectorAll('.nextmodule');
+            next1.forEach(item => {
+                item.addEventListener('click', () => {
+                    plusSlides(1);
+                });
+            });
+        } 
+        if ('.prevmodule') {
+            let prev = document.querySelectorAll('.prevmodule');
+            prev.forEach(item => {
+                item.addEventListener('click', () => {
+                    plusSlides(-1);
+                });
+            });
+        }    
+
     }
 
     const showSlides = (n) => {
@@ -20,6 +39,9 @@ const goPage = () => {
         if (n > slides.length) {
             slideIndex = 1;
         }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }  
 
         slides.forEach(item => item.style.display = 'none');
 
@@ -52,7 +74,7 @@ const goPage = () => {
         item.addEventListener('click', () => {
             plusSlides(1);
         });
-    });
+    });    
 
     logo.forEach(item => {
         item.addEventListener('click', () => {
