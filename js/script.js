@@ -147,6 +147,16 @@ function goPageSlider() {
             wrap.appendChild(wrap.firstChild);
             wrap.insertBefore(slides[slideIndex-1], wrap.firstChild);
         }
+        
+        slides[slideIndex-1].animate([{
+                opacity: '.4'
+            },
+            {
+                opacity: '1'
+            }
+        ], {
+            duration: 2000
+        });
 
         // Opacity first element
         slides.forEach(item => {
@@ -158,6 +168,7 @@ function goPageSlider() {
             item.querySelector('.card__controls-arrow').style.opacity = '0';
         });
         slides[slideIndex-1].querySelector('.card__controls-arrow').style.opacity = '1';
+
         
     };
 
