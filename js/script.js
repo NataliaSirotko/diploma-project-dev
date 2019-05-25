@@ -117,5 +117,69 @@ const playVideo = () => {
 playVideo();
 
 
+
+//first page slider
+function goPageSlider() {
+    // Show slider
+    let wrap = document.querySelector('.showup__content-slider');
+    wrap.style.display = "flex";
+    wrap.style.overflow = "hidden";
+
+    let slides = wrap.querySelectorAll('a.card');
+    slides.forEach(item => {
+        item.style.flexShrink = '0';
+    });
+
+    // Slider
+    let slideIndex = 1,
+        nextPrev = document.querySelectorAll('.showup__content-title .play__circle');
+
+    const showSlides = (n) => {
+        
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+
+        if (nextPrev[1]) {
+            wrap.appendChild(wrap.firstChild);
+            wrap.insertBefore(slides[slideIndex-1], wrap.firstChild);
+        }
+
+        // Opacity first element
+        slides.forEach(item => {
+            item.querySelector('.card__title').style.opacity = '.4';
+        });
+        slides[slideIndex-1].querySelector('.card__title').style.opacity = '1';
+
+        slides.forEach(item => {
+            item.querySelector('.card__controls-arrow').style.opacity = '0';
+        });
+        slides[slideIndex-1].querySelector('.card__controls-arrow').style.opacity = '1';
+        
+    };
+
+    showSlides(slideIndex);
+
+    const plusSlides = (n) => {
+        showSlides(slideIndex += n);
+    };
+    
+    nextPrev[1].addEventListener('click', () => {
+        plusSlides(1);      
+    }); 
+
+    nextPrev[0].addEventListener('click', () => {
+        wrap.insertBefore(wrap.lastChild, wrap.firstChild);
+        plusSlides(-1);
+    });
+    
+}
+
+goPageSlider();
+    
+
 });
 
