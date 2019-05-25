@@ -48,19 +48,19 @@ const goPage = () => {
         slides[slideIndex - 1].style.display = 'block';
         slides[slideIndex - 1].animate([{
                 width: '30%',
-                transform: 'rotate(360deg)'
+                //transform: 'rotate(360deg)'
             },
             {
                 offset: 0.6,
                 width: '100%',
-                transform: 'rotate(0deg)'
+                //transform: 'rotate(0deg)'
             },
             {
                 width: '95%',
-                transform: 'rotate(0deg)'
+                //transform: 'rotate(0deg)'
             }
         ], {
-            duration: 2000
+            duration: 1000
         });
     };
 
@@ -124,9 +124,10 @@ playVideo();
 const goPageSlider = () => {
     // Show slider
     let wrap = document.querySelector('.showup__content-slider');
-    wrap.style.display = "flex";
+    
     wrap.style.overflow = "hidden";
-
+    wrap.style.display = "flex";
+    
     let slides = wrap.querySelectorAll('a.card');
     slides.forEach(item => {
         item.style.flexShrink = '0';
