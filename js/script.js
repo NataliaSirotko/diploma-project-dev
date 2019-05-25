@@ -3,9 +3,10 @@ window.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
     // Page slider & Modules slider & Modules nav
+let slides;  
 const goPage = () => {
     let slideIndex = 1,
-        slides,        
+        //slides,        
         next = document.querySelectorAll('.sidecontrol__controls .next'),
         logo = document.querySelectorAll('.sidecontrol > a');
 
@@ -85,6 +86,8 @@ const goPage = () => {
 };
 
 goPage();
+
+slides.forEach(item => item.style.display = 'block');
 
 // Video
 
@@ -189,7 +192,29 @@ const goPageSlider = () => {
 };
 
 goPageSlider();
-    
+
+
+// Go to Modules
+function goLink() {
+
+let cards = document.querySelectorAll('a.card');
+
+for (let i=0; i<cards.length; i++) {
+    cards[i].addEventListener('click', () => {
+        cards[i].href = `modules.html#${i+1}`;  
+    });
+}
+
+let go = document.querySelector('.showup__content .plus');
+go.addEventListener('click', () => {
+    window.location.href = "modules.html";
+});
+
+}
+goLink();
+
+
+
 
 });
 
