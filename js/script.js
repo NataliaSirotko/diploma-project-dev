@@ -119,7 +119,7 @@ playVideo();
 
 
 //first page slider
-function goPageSlider() {
+const goPageSlider = () => {
     // Show slider
     let wrap = document.querySelector('.showup__content-slider');
     wrap.style.display = "flex";
@@ -147,7 +147,7 @@ function goPageSlider() {
             wrap.appendChild(wrap.firstChild);
             wrap.insertBefore(slides[slideIndex-1], wrap.firstChild);
         }
-        
+
         slides[slideIndex-1].animate([{
                 opacity: '.4'
             },
@@ -187,7 +187,7 @@ function goPageSlider() {
         plusSlides(-1);
     });
     
-}
+};
 
 goPageSlider();
     
