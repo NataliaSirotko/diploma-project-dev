@@ -11,7 +11,6 @@ const goPage = () => {
 
     if (document.body.id === "page-main") {
         slides = document.querySelectorAll('.page > div');
-        //next = document.querySelectorAll('.sidecontrol__controls .next');
     } else {
         slides = document.querySelectorAll('.module');
 
