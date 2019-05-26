@@ -283,5 +283,21 @@ function setDiff() {
 }
 
 setDiff();
+
+// Show Notification
+function showNotification() {    
+    let notification = document.querySelector('.hanson');
+    notification.style.display = "none";
+
+    let button = document.querySelectorAll('.sidecontrol__controls .next')[1];
+        button.addEventListener('click', () => {
+            setTimeout(function() {
+                notification.style.display = 'block';
+            }, 3000);
+        });
+}
+
+showNotification();
+
 });
 
