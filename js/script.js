@@ -303,5 +303,15 @@ function setAccordeon() {
 }
 
 setAccordeon();
+
+//Download
+// function download() {
+// let buttonLoad = document.querySelector('.moduleapp .download');
+// buttonLoad.addEventListener('click', function() {
+//     this.setAttribute('href', 'histfac.pdf');
+//     this.setAttribute('download', 'download');
+// });
+// }
+download();
 });
 
