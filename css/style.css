@@ -2035,3 +2035,6 @@ a:active {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
 }
+.feed .button-wrapper {
+    margin: -50px 750px;
+}
