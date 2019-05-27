@@ -2036,5 +2036,8 @@ a:active {
     transform: rotate(180deg);
 }
 .feed .button-wrapper {
-    margin: -50px 750px;
+    margin: -50px 705px;
+}
+.hidden {
+    display: none;
 }
